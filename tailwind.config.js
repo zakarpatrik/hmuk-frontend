@@ -9,10 +9,15 @@ export default {
       center: true,
       padding: '2rem',
       screens: {
+        xl: '1280px',
         '2xl': '1400px',
       },
     },
     extend: {
+      fontFamily: {
+        DEFAULT: ['DM Sans', 'sans-serif'],
+        title: ['DM Serif Display', 'serif']
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
