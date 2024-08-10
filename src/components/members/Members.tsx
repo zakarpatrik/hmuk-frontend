@@ -4,6 +4,7 @@ import { LongText, Payload, SearchApiResponse, Uegyvedek} from "@/api/types.ts";
 import qs from "qs";
 import axios from "axios";
 import {mobileBreakpoint, useMediaQuery} from "@/hooks/useMediaQuery.ts";
+import {PlaceholdersAndVanishInput} from "@/components/ui/placeholders-and-vanish-input.tsx";
 
 const Members = () => {
     const [lawyerData, setLawyerData] = useState<Payload<Uegyvedek[]>>();
@@ -92,7 +93,22 @@ const Members = () => {
     return (
         <div>
             <SiteHero title={pageData?.data.attributes.Cim} desc={pageData?.data.attributes.Alcim as LongText}/>
-            <div></div>
+            <div className='container py-4 md:py-12'>
+                <div
+                    className={`flex gap-4 items-center mb-10 ${mobileMode ? 'flex-wrap w-full' : 'w-10/12'}`}
+                >
+                    <div className={mobileMode ? 'w-full' : ''}>
+                        Keresendő szöveg:
+                    </div>
+                    <div className={mobileMode ? 'w-full' : 'w-1/4'}>
+                        <PlaceholdersAndVanishInput
+                            placeholders={['Név', 'Város', 'Irányítószám', 'Email cím']}
+                            onChange={handleSearchTextChange}
+                            onSubmit={() => setSearchText('')}
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
