@@ -46,7 +46,9 @@ const DesktopMenu = () => {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Kamara</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                            Kamara
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid grid-cols-1 gap-3 w-[150px] p-4">
                             {components.map((component) => (
@@ -63,7 +65,7 @@ const DesktopMenu = () => {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href={'/ugyvedkereso'} className='group'>
-                        <Button variant='ghost'>
+                        <Button variant='ghost' className='hover:text-white'>
                             Tagjaink
                         </Button>
                     </NavigationMenuLink>

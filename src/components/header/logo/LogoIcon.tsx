@@ -1,7 +1,7 @@
 const LogoIcon = () => {
     return (
         <svg
-            className='fill-white w-6 h-6'
+            className='transition-all duration-200 ease-linear w-6 h-6'
             width="45"
             height="37"
             viewBox="0 0 45 37"

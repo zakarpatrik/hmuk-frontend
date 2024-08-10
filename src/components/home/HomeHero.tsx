@@ -1,24 +1,21 @@
-import { HomeApiResponse, Payload } from '../../api/types';
+import {HomeApiResponse, Payload} from '@/api/types.ts';
 
 export interface HomeDataProps {
-  homeData: Payload<HomeApiResponse> | undefined;
+    homeData: Payload<HomeApiResponse> | undefined;
 }
 
 const HomeHero = (props: HomeDataProps) => {
-  return (
-    <div className="container flex py-28 items-center">
-      <div className="relative flex w-full">
-        <h1 className="text-[4.5rem] font-semibold font-title w-1/2 z-10 pb-60 pt-20 px-0">
-          {props.homeData?.data.attributes.Cim}
-        </h1>
-        <img
-          src="src/assets/hero.webp"
-          alt="hmuk hero"
-          className="absolute top-0 right-0 w-9/12"
-        />
-      </div>
-    </div>
-  );
+    return (
+        <div className="w-full bg-fixed bg-cover" style={{backgroundImage: 'url(src/assets/bazilika3.webp)'}}>
+            <div className='bg-gradient-to-b from-slate-900/60 to-slate-500/40'>
+                <div className="container flex relative w-full items-center justify-center h-screen">
+                    <h1 className="text-[4.5rem] font-semibold text-white text-center font-title w-2/3 z-10 pb-40 px-0">
+                        {props.homeData?.data.attributes.Cim}
+                    </h1>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default HomeHero;
