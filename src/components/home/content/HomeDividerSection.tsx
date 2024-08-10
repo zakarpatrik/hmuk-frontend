@@ -16,24 +16,24 @@ const links: LinkAttributes[] = [
 
 const HomeDividerSection = () => {
   return (
-    <div className="flex py-16 bg-primary gap-24 w-screen h-96">
-      <div className="flex gap-24 w-full container">
-        <div className="flex relative w-1/2 h-68 items-center">
+    <div className="flex py-8 md:py-16 bg-primary gap-24 w-screen min-h-96">
+      <div className="flex flex-col md:flex-row gap-8 w-full container lg:gap-24">
+        <div className="flex flex-col-reverse relative gap-4 justify-center w-full h-68 items-center md:w-5/12 lg:w-1/2">
           <img
             src="src/assets/divider_section_img.webp"
             alt=""
-            className={`h-max opacity-80 rounded-md w-full sm:absolute sm:top-0 sm:left-0 sm:w-11/12`}
+            className={`h-max opacity-80 rounded-md w-full lg:absolute lg:top-0 lg:left-0 md:w-full lg:w-11/12`}
           />
-          <h3 className="font-title text-[3.2rem] z-10 text-white font-semibold absolute bottom-0 right-0 w-10/12 text-right">
+          <h3 className="font-title text-3xl z-10 text-white font-semibold text-center md:text-right md:text-4xl lg:w-10/12 lg:absolute lg:bottom-0 lg:right-0 lg:text-5xl">
             Tekintse meg további oldalainkat
           </h3>
         </div>
-        <div className="flex w-1/2 items-center">
+        <div className="flex w-full items-center md:w-7/12 lg:w-1/2">
           <div className="flex flex-col w-full gap-4">
             {links.map((link, idx) => {
               return (
                   <React.Fragment key={idx}>
-                    <Link to={link.link} hrefLang={'hu'} className='text-2xl font-title'>
+                    <Link to={link.link} hrefLang={'hu'} className='text-xl md:text-2xl font-title'>
                       <div className='text-white fill-white stroke-white w-full flex justify-between items-center'>
                         <span>{link.label}</span>
                         <MoveUpRightIcon className='w-5 h-5' />
@@ -43,7 +43,6 @@ const HomeDividerSection = () => {
                   </React.Fragment>
               )
             })}
-            {/*<LinkComponent dark pages={morePages} />*/}
           </div>
         </div>
       </div>
