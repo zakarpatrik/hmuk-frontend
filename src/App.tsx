@@ -1,6 +1,7 @@
 import Header from "@/components/header/Header.tsx";
 import { Route, Routes} from "react-router-dom";
 import Home from "@/components/home/Home.tsx";
+import Members from "@/components/members/Members.tsx";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <main>
           <Routes location={location}>
               <Route path="/" element={<Home />} />
-              {/*<Route path="/ugyvedkereso" element={<Members />} />*/}
+              <Route path="/ugyvedkereso" element={<Members />} />
               {/*<Route path="/tisztsegviseloink" element={<OfficeBearers />} />*/}
               {/*<Route path="/ugyfel-jogok" element={<CustomerRights />} />*/}
               {/*<Route*/}
