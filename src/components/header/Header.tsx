@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DesktopNavigation from './desktop/DesktopNavigation.tsx';
 import {cn} from "@/lib/utils.ts";
+import MobileNavigation from "@/components/header/mobile/MobileNavigation.tsx";
 
 const Header = () => {
     const [background, setBackground] = useState('bg-transparent');
@@ -23,11 +24,12 @@ const Header = () => {
 
     return (
         <div
-            className={cn('flex w-full justify-center fixed py-2 top-0 z-50 transition duration-200 ease-in', background)}
+            className={cn('flex w-full justify-center fixed sm:py-2 top-0 z-50 transition duration-200 ease-in', background)}
         >
-            <div className="flex container justify-between py-4 items-center">
+            <div className="hidden sm:flex container justify-between py-4 items-center">
                 <DesktopNavigation />
             </div>
+            <MobileNavigation />
         </div>
     );
 };

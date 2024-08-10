@@ -7,41 +7,34 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 import {Button} from "@/components/ui/button.tsx";
+import {Link, useLocation} from "react-router-dom";
+import {cn} from "@/lib/utils.ts";
 
-const components: { title: string; href: string; description: string }[] = [
+const menuItems: { title: string; href: string }[] = [
     {
-        title: "Magunkrol",
+        title: "Magunkról",
         href: "/",
-        description:
-            "Valami rovid leiras magunkrol, lehet nem is fog kelleni ez",
     },
     {
-        title: "Magunkrol",
-        href: "/",
-        description:
-            "Valami rovid leiras magunkrol, lehet nem is fog kelleni ez",
+        title: "Tisztségviselőink",
+        href: "/tisztsegviseloink",
     },
     {
-        title: "Magunkrol",
-        href: "/",
-        description:
-            "Valami rovid leiras magunkrol, lehet nem is fog kelleni ez",
+        title: "Ügyfél jogok",
+        href: "/ugyfel-jogok",
     },
     {
-        title: "Magunkrol",
-        href: "/",
-        description:
-            "Valami rovid leiras magunkrol, lehet nem is fog kelleni ez",
+        title: "Hogyan válasszunk ügyvédet?",
+        href: "/hogyan-valasszunk-ugyvedet",
     },
     {
-        title: "Magunkrol",
-        href: "/",
-        description:
-            "Valami rovid leiras magunkrol, lehet nem is fog kelleni ez",
+        title: "Hasznos linkek",
+        href: "/hasznos-linkek",
     },
 ]
 
 const DesktopMenu = () => {
+    const location = useLocation();
     return (
         <NavigationMenu>
             <NavigationMenuList>
@@ -50,22 +43,23 @@ const DesktopMenu = () => {
                             Kamara
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid grid-cols-1 gap-3 w-[150px] p-4">
-                            {components.map((component) => (
-                                <NavigationMenuLink
+                        <div className="grid grid-cols-1 gap-1 w-max p-1">
+                            {menuItems.map((component) => (
+                                <Link
                                     key={component.title}
-                                    href={component.href}
-                                    className='text-sm'
+                                    to={component.href}
+                                    hrefLang={'hu'}
+                                    className={cn('p-2 rounded-md text-sm w-full whitespace-nowrap transition duration-100 ease-linear', location.pathname === component.href ? 'bg-primary text-white' : 'bg-transparent text-foreground hover:bg-slate-500 hover:text-white')}
                                 >
-                                    <b>{component.title}</b>
-                                </NavigationMenuLink>
+                                    <span>{component.title}</span>
+                                </Link>
                             ))}
-                        </ul>
+                        </div>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuLink href={'/ugyvedkereso'} className='group'>
-                        <Button variant='ghost' className='hover:text-white'>
+                        <Button variant='ghost' className='bg-transparent hover:bg-transparent hover:text-white'>
                             Tagjaink
                         </Button>
                     </NavigationMenuLink>
