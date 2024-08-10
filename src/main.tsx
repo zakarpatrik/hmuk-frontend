@@ -6,7 +6,7 @@ import {routes} from "@/routes/routes.tsx";
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '*',
         element: <App />,
         children: routes.map(route => ({
             index: route.path === '/',

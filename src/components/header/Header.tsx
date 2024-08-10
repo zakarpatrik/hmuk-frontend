@@ -24,9 +24,9 @@ const Header = () => {
 
     return (
         <div
-            className={cn('flex w-full justify-center fixed sm:py-2 top-0 z-50 transition duration-200 ease-in', background)}
+            className={cn('flex w-full justify-center fixed lg:py-2 top-0 z-50 transition duration-200 ease-in', background)}
         >
-            <div className="hidden sm:flex container justify-between py-4 items-center">
+            <div className="hidden lg:flex container justify-between py-4 items-center">
                 <DesktopNavigation />
             </div>
             <MobileNavigation />

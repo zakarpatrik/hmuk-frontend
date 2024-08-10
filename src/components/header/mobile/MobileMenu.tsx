@@ -1,5 +1,5 @@
 import {MenuIcon, XIcon} from "lucide-react";
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet.tsx";
+import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger} from "@/components/ui/sheet.tsx";
 import Logo from "@/components/header/logo/Logo.tsx";
 import {useState} from "react";
 import {Link, useLocation} from "react-router-dom";
@@ -46,6 +46,8 @@ const MobileMenu = () => {
                 </div>
             </SheetTrigger>
             <SheetContent className='bg-primary flex flex-col gap-8 border-none w-5/6 text-white [&>button]:hidden p-6'>
+                <SheetHeader className='sr-only'>Egri Ügyvédi Kamara</SheetHeader>
+                <SheetDescription className='sr-only'>Egri Ügyvédi Kamara mobil menu</SheetDescription>
                 <div className='flex w-full justify-between [&_svg]:fill-white'>
                     <Logo/>
                     <div className='p-1 bg-gray-900/60 rounded-md'>

@@ -32,8 +32,8 @@ export const renderContent = (node: LongText, className?: string) => {
           <ol key={idx} className={`text-white ${className}`}>
             {content.children.map((child, childIdx) => (
               <li key={childIdx}>
-                {child.children?.map(listItemChild =>
-                  applyStyles(listItemChild as TextNode)
+                {child.children?.map((listItemChild, listItemChildIdx) =>
+                    <React.Fragment key={listItemChildIdx}>{applyStyles(listItemChild as TextNode)}</React.Fragment>
                 )}
               </li>
             ))}
@@ -44,8 +44,8 @@ export const renderContent = (node: LongText, className?: string) => {
           <ul key={idx} className={`${className}`}>
             {content.children.map((child, childIdx) => (
               <li key={childIdx}>
-                {child.children?.map(listItemChild =>
-                  applyStyles(listItemChild as TextNode)
+                {child.children?.map((listItemChild, listItemChildIdx) =>
+                  <React.Fragment key={listItemChildIdx}>{applyStyles(listItemChild as TextNode)}</React.Fragment>
                 )}
               </li>
             ))}
@@ -54,7 +54,7 @@ export const renderContent = (node: LongText, className?: string) => {
       }
     } else if (content.type === 'quote') {
       return (
-        <p key={idx} className={`${className}`}>
+        <div key={idx} className={`${className}`}>
           {content.children.map((quoteChild, quoteChildIdx) => (
             <blockquote
               key={quoteChildIdx}
@@ -63,15 +63,15 @@ export const renderContent = (node: LongText, className?: string) => {
               {applyStyles(quoteChild as TextNode)}
             </blockquote>
           ))}
-        </p>
+        </div>
       );
     } else if (content.type === 'heading') {
       return (
         content.level && (
-          <span className={`${className}`}>
+          <span key={idx} className={`${className}`}>
             <>
-              {content.children.map(child => {
-                return applyStyles(child as TextNode);
+              {content.children.map((child, idx) => {
+                return <React.Fragment key={idx}>{applyStyles(child as TextNode)}</React.Fragment>;
               })}
             </>
           </span>
@@ -79,7 +79,7 @@ export const renderContent = (node: LongText, className?: string) => {
       );
     } else
       return (
-        <p className={className}>
+        <p key={idx} className={className}>
           {content.children.map((child, childIdx) => {
             if (child.type === 'link') {
               return (
@@ -90,11 +90,11 @@ export const renderContent = (node: LongText, className?: string) => {
                   rel="noopener noreferrer"
                   className="custom-link"
                 >
-                  {child.children?.map(linkChild => applyStyles(linkChild))}
+                  {child.children?.map((linkChild, idx) => <React.Fragment key={idx}>{applyStyles(linkChild)}</React.Fragment>)}
                 </a>
               );
             } else {
-              return applyStyles(child as TextNode);
+              return <React.Fragment key={childIdx}>{applyStyles(child as TextNode)}</React.Fragment>;
             }
           })}
         </p>
