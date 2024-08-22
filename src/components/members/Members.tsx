@@ -3,7 +3,7 @@ import {ChangeEvent, useEffect, useState} from "react";
 import {LongText, Payload, SearchApiResponse, Uegyvedek} from "@/api/types.ts";
 import qs from "qs";
 import axios from "axios";
-import {mobileBreakpoint, useMediaQuery} from "@/hooks/useMediaQuery.ts";
+import {mobileBreakpoint, tabletBreakpoint, useMediaQuery} from "@/hooks/useMediaQuery.ts";
 import {PlaceholdersAndVanishInput} from "@/components/ui/placeholders-and-vanish-input.tsx";
 import MemberCard from "@/components/members/MemberCard.tsx";
 import PaginationWithEllipsis from "@/components/PaginationWithEllipsis.tsx";
@@ -16,6 +16,7 @@ const Members = () => {
     const [totalEntries, setTotalEntries] = useState(0);
 
     const mobileMode = useMediaQuery(mobileBreakpoint);
+    const tabletMode = useMediaQuery(tabletBreakpoint);
 
     const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchText(e.target.value);
@@ -56,7 +57,7 @@ const Members = () => {
                         },
                         pagination: {
                             page: currentPage,
-                            pageSize: 21,
+                            pageSize: tabletMode ? 21 : 20,
                             pageCount: 5,
                         },
                     },
@@ -88,7 +89,7 @@ const Members = () => {
     }, [searchText, currentPage]);
 
     return (
-        <div>
+        <>
             <SiteHero title={pageData?.data.attributes.Cim} desc={pageData?.data.attributes.Alcim as LongText}/>
             <div id='site-top' className='scroll-mt-[88px] container flex flex-col items-center justify-center py-4 md:py-12'>
                 <div
@@ -109,7 +110,7 @@ const Members = () => {
                     className='flex flex-col gap-8 items-center w-full sm:w-5/6'
                 >
                     <div
-                        className='w-full grid auto-rows-fr gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+                        className='w-full grid auto-rows-fr gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                     >
                         {lawyerData?.data && lawyerData.data.length > 0 ? (
                             lawyerData.data.map((lawyer, idx) => (
@@ -122,12 +123,12 @@ const Members = () => {
                     <PaginationWithEllipsis
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
-                        pageSize={21}
+                        pageSize={tabletMode ? 21 : 20}
                         totalEntries={totalEntries}
                     />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
