@@ -206,42 +206,42 @@ export function PlaceholdersAndVanishInput({
         )}
       />
 
-      <button
-        disabled={!value}
-        type="submit"
-        className="absolute right-1 top-1/2 z-50 -translate-y-1/2 h-8 w-8 lg bg-primary disabled:bg-slate-900/50 bg-black transition duration-200 flex items-center justify-center rounded-md"
-      >
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="text-gray-300 h-4 w-4"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <motion.path
-            d="M5 12l14 0"
-            initial={{
-              strokeDasharray: "50%",
-              strokeDashoffset: "50%",
-            }}
-            animate={{
-              strokeDashoffset: value ? 0 : "50%",
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "linear",
-            }}
-          />
-          <path d="M13 18l6 -6" />
-          <path d="M13 6l6 6" />
-        </motion.svg>
-      </button>
+      {/*<button*/}
+      {/*  disabled={!value}*/}
+      {/*  type="submit"*/}
+      {/*  className="absolute right-1 top-1/2 z-50 -translate-y-1/2 h-8 w-8 lg bg-primary disabled:bg-slate-900/50 bg-black transition duration-200 flex items-center justify-center rounded-md"*/}
+      {/*>*/}
+      {/*  <motion.svg*/}
+      {/*    xmlns="http://www.w3.org/2000/svg"*/}
+      {/*    width="24"*/}
+      {/*    height="24"*/}
+      {/*    viewBox="0 0 24 24"*/}
+      {/*    fill="none"*/}
+      {/*    stroke="currentColor"*/}
+      {/*    strokeWidth="2"*/}
+      {/*    strokeLinecap="round"*/}
+      {/*    strokeLinejoin="round"*/}
+      {/*    className="text-gray-300 h-4 w-4"*/}
+      {/*  >*/}
+      {/*    <path stroke="none" d="M0 0h24v24H0z" fill="none" />*/}
+      {/*    <motion.path*/}
+      {/*      d="M5 12l14 0"*/}
+      {/*      initial={{*/}
+      {/*        strokeDasharray: "50%",*/}
+      {/*        strokeDashoffset: "50%",*/}
+      {/*      }}*/}
+      {/*      animate={{*/}
+      {/*        strokeDashoffset: value ? 0 : "50%",*/}
+      {/*      }}*/}
+      {/*      transition={{*/}
+      {/*        duration: 0.3,*/}
+      {/*        ease: "linear",*/}
+      {/*      }}*/}
+      {/*    />*/}
+      {/*    <path d="M13 18l6 -6" />*/}
+      {/*    <path d="M13 6l6 6" />*/}
+      {/*  </motion.svg>*/}
+      {/*</button>*/}
 
       <div className="absolute inset-0 flex items-center rounded-md pointer-events-none">
         <AnimatePresence mode="wait">

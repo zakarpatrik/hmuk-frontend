@@ -7,10 +7,9 @@ type MemberCardProps = {
 };
 
 const MemberCard: React.FC<MemberCardProps> = ({ lawyer }) => {
-    console.log(lawyer);
     return (
         <div
-            className="w-full shadow-md rounded-md bg-white p-4"
+            className="w-full shadow-md rounded-md bg-white p-4 hover:scale-105 hover:shadow-xl transition-all duration-300 ease-out"
         >
             <div className="flex flex-col items-between">
                 <h2 className='text-base font-semibold text-primary'>{lawyer.attributes.Nev}</h2>

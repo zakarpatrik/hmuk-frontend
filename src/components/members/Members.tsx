@@ -22,11 +22,6 @@ const Members = () => {
         setCurrentPage(1);
     };
 
-    const handlePageChange = (page: number) => {
-        setCurrentPage(page);
-        window.scrollTo(0, mobileMode ? 400 : 460);
-    };
-
     useEffect(() => {
         const fetchLawyers = async () => {
             try {
@@ -95,7 +90,7 @@ const Members = () => {
     return (
         <div>
             <SiteHero title={pageData?.data.attributes.Cim} desc={pageData?.data.attributes.Alcim as LongText}/>
-            <div className='container flex flex-col items-center justify-center py-4 md:py-12'>
+            <div id='site-top' className='scroll-mt-[88px] container flex flex-col items-center justify-center py-4 md:py-12'>
                 <div
                     className={`flex gap-4 items-center mb-10 ${mobileMode ? 'flex-wrap w-full' : 'w-10/12'}`}
                 >
@@ -126,9 +121,9 @@ const Members = () => {
                     </div>
                     <PaginationWithEllipsis
                         currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
                         pageSize={21}
                         totalEntries={totalEntries}
-                        onChange={handlePageChange}
                     />
                 </div>
             </div>
