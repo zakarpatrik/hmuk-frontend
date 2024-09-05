@@ -1,6 +1,7 @@
 import Home from "@/components/home/Home.tsx";
 import {createRef} from "react";
 import Members from "@/components/members/Members.tsx";
+import OfficeBearers from "@/components/office-bearers/OfficeBearers.tsx";
 
 export const routes = [
     { path: '/', name: 'Magunkról', element: <Home />, nodeRef: createRef() },
@@ -10,12 +11,12 @@ export const routes = [
         element: <Members />,
         nodeRef: createRef(),
     },
-    // {
-    //     path: '/tisztsegviseloink',
-    //     name: 'Tisztségviselőink',
-    //     element: <OfficeBearers />,
-    //     nodeRef: createRef(),
-    // },
+    {
+        path: '/tisztsegviseloink',
+        name: 'Tisztségviselőink',
+        element: <OfficeBearers />,
+        nodeRef: createRef(),
+    },
     // {
     //     path: '/ugyfel-jogok',
     //     name: 'Ügyfél jogok',
