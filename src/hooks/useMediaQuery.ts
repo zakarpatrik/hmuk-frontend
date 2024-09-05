@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const mobileBreakpoint = '(max-width: 576px)';
-export const tabletBreakpoint = '(max-width: 1200px)';
+export const tabletBreakpoint = '(max-width: 1023px)';
 
 export const useMediaQuery = (query: string) => {
     const [matches, setMatches] = useState(false);

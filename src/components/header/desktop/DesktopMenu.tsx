@@ -36,7 +36,7 @@ const menuItems: { title: string; href: string }[] = [
 const DesktopMenu = () => {
     const location = useLocation();
     return (
-        <NavigationMenu>
+        <NavigationMenu className='text-white'>
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>
