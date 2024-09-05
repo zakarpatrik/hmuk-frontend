@@ -32,22 +32,22 @@ const mobileNavItems = [
 const downloadableFiles = [
     {
         label: 'Iránymutatás az ügyvédjelöltek alkalmazásáról',
-        key: '#',
+        key: '#1',
         icon: TbFileText
     },
     {
         label: 'A Magyar Ügyvédi Kamara Alapszabálya',
-        key: '#',
+        key: '#2',
         icon: TbFileText
     },
     {
         label: 'Foglalkoztatásra jogosult ügyvédek',
-        key: '#',
+        key: '#3',
         icon: TbFileText
     },
     {
         label: 'Alapszabály',
-        key: '#',
+        key: '#4',
         icon: TbFileText
     },
 ]

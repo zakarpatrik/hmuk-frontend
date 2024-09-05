@@ -3,6 +3,8 @@ import {createRef} from "react";
 import Members from "@/components/members/Members.tsx";
 import OfficeBearers from "@/components/office-bearers/OfficeBearers.tsx";
 import CustomerRights from "@/components/customer-rights/CustomerRights.tsx";
+import HowToChoose from "@/components/how-to-choose/HowToChoose.tsx";
+import UsefulLinks from "@/components/useful-links/UsefulLinks.tsx";
 
 export const routes = [
     { path: '/', name: 'Magunkról', element: <Home />, nodeRef: createRef() },
@@ -24,16 +26,16 @@ export const routes = [
         element: <CustomerRights />,
         nodeRef: createRef(),
     },
-    // {
-    //     path: '/hogyan-valasszunk-ugyvedet',
-    //     name: 'Hogyan válasszunk ügyvédet?',
-    //     element: <HowToChoose />,
-    //     nodeRef: createRef(),
-    // },
-    // {
-    //     path: '/hasznos-linkek',
-    //     name: 'Hasznos linkek',
-    //     element: <ImportantLinks />,
-    //     nodeRef: createRef(),
-    // },
+    {
+        path: '/hogyan-valasszunk-ugyvedet',
+        name: 'Hogyan válasszunk ügyvédet?',
+        element: <HowToChoose />,
+        nodeRef: createRef(),
+    },
+    {
+        path: '/hasznos-linkek',
+        name: 'Hasznos linkek',
+        element: <UsefulLinks />,
+        nodeRef: createRef(),
+    },
 ];

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import SiteHero from '@/components/hero/SiteHero';
+import SiteHero from '@/components/hero/SiteHero.tsx';
 import axios from 'axios';
 import {HowToChooseApiResponse, LongText, Payload} from '@/api/types.ts';
 import qs from 'qs';
