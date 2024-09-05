@@ -4,6 +4,7 @@ import Home from "@/components/home/Home.tsx";
 import Members from "@/components/members/Members.tsx";
 import Footer from "@/components/footer/Footer.tsx";
 import OfficeBearers from "@/components/office-bearers/OfficeBearers.tsx";
+import CustomerRights from "@/components/customer-rights/CustomerRights.tsx";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/ugyvedkereso" element={<Members />} />
               <Route path="/tisztsegviseloink" element={<OfficeBearers />} />
-              {/*<Route path="/ugyfel-jogok" element={<CustomerRights />} />*/}
+              <Route path="/ugyfel-jogok" element={<CustomerRights />} />
               {/*<Route*/}
               {/*    path="/hogyan-valasszunk-ugyvedet"*/}
               {/*    element={<HowToChoose />}*/}
