@@ -3,7 +3,7 @@ import {ChangeEvent, useEffect, useState} from "react";
 import {LongText, Payload, SearchApiResponse, Uegyvedek} from "@/api/types.ts";
 import qs from "qs";
 import axios from "axios";
-import {mobileBreakpoint, tabletBreakpoint, useMediaQuery} from "@/hooks/useMediaQuery.ts";
+import {mobileBreakpoint, useMediaQuery} from "@/hooks/useMediaQuery.ts";
 import {PlaceholdersAndVanishInput} from "@/components/ui/placeholders-and-vanish-input.tsx";
 import MemberCard from "@/components/members/MemberCard.tsx";
 import PaginationWithEllipsis from "@/components/PaginationWithEllipsis.tsx";
@@ -16,7 +16,6 @@ const Members = () => {
     const [totalEntries, setTotalEntries] = useState(0);
 
     const mobileMode = useMediaQuery(mobileBreakpoint);
-    const tabletMode = useMediaQuery(tabletBreakpoint);
 
     const handleSearchTextChange = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchText(e.target.value);
@@ -57,7 +56,7 @@ const Members = () => {
                         },
                         pagination: {
                             page: currentPage,
-                            pageSize: tabletMode ? 21 : 20,
+                            pageSize: 18,
                             pageCount: 5,
                         },
                     },
@@ -123,7 +122,7 @@ const Members = () => {
                     <PaginationWithEllipsis
                         currentPage={currentPage}
                         setCurrentPage={setCurrentPage}
-                        pageSize={tabletMode ? 21 : 20}
+                        pageSize={18}
                         totalEntries={totalEntries}
                     />
                 </div>
