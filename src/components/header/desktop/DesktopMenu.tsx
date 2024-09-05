@@ -1,14 +1,8 @@
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 import {Button} from "@/components/ui/button.tsx";
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {cn} from "@/lib/utils.ts";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuTrigger} from "@/components/ui/dropdown-menu.tsx";
+import {useState} from "react";
 
 const menuItems: { title: string; href: string }[] = [
     {
@@ -35,37 +29,34 @@ const menuItems: { title: string; href: string }[] = [
 
 const DesktopMenu = () => {
     const location = useLocation();
+    const [open, setOpen] = useState<boolean>(false);
     return (
-        <NavigationMenu className='text-white'>
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                            Kamara
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <div className="grid grid-cols-1 gap-1 w-max p-1">
-                            {menuItems.map((component) => (
-                                <Link
-                                    key={component.title}
-                                    to={component.href}
-                                    hrefLang={'hu'}
-                                    className={cn('p-2 rounded-md text-sm w-full whitespace-nowrap transition duration-100 ease-linear', location.pathname === component.href ? 'bg-primary text-white' : 'bg-transparent text-foreground hover:bg-slate-500 hover:text-white')}
-                                >
-                                    <span>{component.title}</span>
-                                </Link>
-                            ))}
-                        </div>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuLink href={'/ugyvedkereso'} className='group'>
-                        <Button variant='ghost' className='bg-transparent hover:bg-transparent hover:text-white'>
-                            Tagjaink
-                        </Button>
-                    </NavigationMenuLink>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+        <div className='flex gap-6'>
+            <DropdownMenu open={open} onOpenChange={setOpen}>
+                <DropdownMenuTrigger asChild>
+                    <Button variant='ghost' className='bg-transparent hover:bg-transparent hover:text-white text-white'>
+                        Kamara
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="grid grid-cols-1 gap-1 w-max p-1">
+                        {menuItems.map((component) => (
+                            <a
+                                key={component.title}
+                                href={component.href}
+                                hrefLang={'hu'}
+                                className={cn('p-2 rounded-md w-full whitespace-nowrap transition duration-100 ease-linear text-sm', location.pathname === component.href ? 'bg-primary text-white' : 'bg-transparent text-foreground hover:bg-slate-500 hover:text-white')}
+                            >
+                                <span>{component.title}</span>
+                            </a>
+                        ))}
+                </DropdownMenuContent>
+            </DropdownMenu>
+            <a href={'/ugyvedkereso'}>
+                <Button variant='ghost' className='bg-transparent hover:bg-transparent hover:text-white text-white'>
+                    Tagjaink
+                </Button>
+            </a>
+        </div>
     )
 }
 export default DesktopMenu;

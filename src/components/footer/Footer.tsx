@@ -2,15 +2,14 @@ import Logo from "@/components/header/logo/Logo.tsx";
 import moment from "moment";
 import FooterLink from "@/components/footer/FooterLink.tsx";
 import {contacts, downloadableFiles, mobileNavItems} from "@/components/footer/footer-links.ts";
-import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
         <div className="flex justify-center bg-primary py-14">
             <div className="container items-center flex flex-col gap-8">
-                <Link to={'/'} hrefLang={'hu'}>
+                <a href={'/'} hrefLang={'hu'}>
                     <Logo/>
-                </Link>
+                </a>
                 <div className="bg-white mx-20 h-px w-full"/>
                 <div
                     className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-between w-full gap-6'
