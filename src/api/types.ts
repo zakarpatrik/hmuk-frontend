@@ -192,6 +192,10 @@ export type HomeApiResponse = ApiResponse<Home>;
 interface UsefulLinks {
   Cim: string;
   Alcim: LongText;
+  HasznosLinkek: {
+    KiirandoSzoveg: string;
+    Link: string;
+  }[];
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
