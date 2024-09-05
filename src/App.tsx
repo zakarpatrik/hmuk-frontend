@@ -2,8 +2,9 @@ import Header from "@/components/header/Header.tsx";
 import { Route, Routes} from "react-router-dom";
 import Home from "@/components/home/Home.tsx";
 import Members from "@/components/members/Members.tsx";
+import Footer from "@/components/footer/Footer.tsx";
 
-function App() {
+const App = () => {
   return (
       <>
         <Header />
@@ -20,6 +21,7 @@ function App() {
               {/*<Route path="/hasznos-linkek" element={<ImportantLinks />} />*/}
           </Routes>
         </main>
+        <Footer />
       </>
   );
 }
