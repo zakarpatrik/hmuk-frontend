@@ -2,8 +2,8 @@ import {MenuIcon, XIcon} from "lucide-react";
 import {Sheet, SheetContent, SheetDescription, SheetHeader, SheetTrigger} from "@/components/ui/sheet.tsx";
 import Logo from "@/components/header/logo/Logo.tsx";
 import {useState} from "react";
-import {Link, useLocation} from "react-router-dom";
 import {cn} from "@/lib/utils.ts";
+import {Link, useLocation} from "@tanstack/react-router";
 
 const menuItems: { title: string; href: string }[] = [
     {
