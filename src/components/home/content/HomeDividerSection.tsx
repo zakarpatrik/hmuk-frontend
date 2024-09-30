@@ -1,6 +1,6 @@
-import {Link} from "react-router-dom";
 import {MoveUpRightIcon} from "lucide-react";
 import React from "react";
+import {Link} from "@tanstack/react-router";
 
 export interface LinkAttributes {
   label: string;

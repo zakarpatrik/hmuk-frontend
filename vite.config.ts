@@ -1,10 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from "path";
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
+import viteReact from "@vitejs/plugin-react";
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+      react(),
+      TanStackRouterVite(),
+      // viteReact()
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

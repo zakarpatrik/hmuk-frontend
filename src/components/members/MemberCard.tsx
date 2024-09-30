@@ -1,6 +1,6 @@
 import React from 'react';
 import {Uegyvedek} from '@/api/types.ts';
-import {Link} from "react-router-dom";
+import { Link } from '@tanstack/react-router';
 
 type MemberCardProps = {
     lawyer: Uegyvedek;
